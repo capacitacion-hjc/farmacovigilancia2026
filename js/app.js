@@ -4,6 +4,7 @@ const API_URL =
 document
   .getElementById("registroForm")
   .addEventListener("submit", async function (e) {
+
     e.preventDefault();
 
     const datos = {
@@ -16,21 +17,32 @@ document
       gradoAcademico: document.getElementById("gradoAcademico").value,
     };
 
-    const respuesta = await fetch(API_URL, {
-        method: 'POST',
-        mode: 'no-cors',
+    try {
+
+      await fetch(API_URL, {
+        method: "POST",
+        mode: "no-cors",
         body: JSON.stringify(datos)
-    });
+      });
 
-    
-const resultado = await respuesta.json();
-
-    document.getElementById("resultado").innerHTML = `
-      <div class="alert alert-success">
-      Registro enviado correctamente. Folio asignado:
-      <b>${resultado.folio}</b>
-      </div>
+      document.getElementById("resultado").innerHTML = `
+        <div class="alert alert-success">
+          Registro enviado correctamente.
+        </div>
       `;
+
+      document.getElementById("registroForm").reset();
+
+    } catch (error) {
+
+      document.getElementById("resultado").innerHTML = `
+        <div class="alert alert-danger">
+          Ocurrió un error al registrar la información.
+        </div>
+      `;
+
+      console.error(error);
+    }
 
     document.getElementById("registroForm").reset();
   });
