@@ -1,0 +1,24 @@
+body{
+    background:#a57f2c;
+}
+
+.card{
+    border-radius:15px;
+}
+
+.card-header{
+    border-radius:15px 15px 0 0 !important;
+}
+
+label{
+    font-weight:bold;
+}
+
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: #611232 !important;
+}
+
+.btn-primary {
+    --bs-btn-bg: #611232;
+}
