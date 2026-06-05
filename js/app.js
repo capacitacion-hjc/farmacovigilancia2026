@@ -22,20 +22,12 @@ document
         body: JSON.stringify(datos)
     });
 
-    const resultado = await respuesta.json();
 
     document.getElementById("resultado").innerHTML = `
-
-<div class="alert alert-success">
-
-Registro exitoso.<br>
-
-Folio asignado:
-<b>${resultado.folio}</b>
-
-</div>
-
-`;
+      <div class="alert alert-success">
+      Registro enviado correctamente.
+      </div>
+      `;
 
     document.getElementById("registroForm").reset();
   });
