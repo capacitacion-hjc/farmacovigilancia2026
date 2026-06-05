@@ -1,4 +1,5 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbxwRZDZDR5ifzFxiK88JzLTFqsaj4ekMinulSm7o4FawScXh5CdJJVtLOc5oTyC5p0J/exec";
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbxwRZDZDR5ifzFxiK88JzLTFqsaj4ekMinulSm7o4FawScXh5CdJJVtLOc5oTyC5p0J/exec";
 
 document
   .getElementById("registroForm")
@@ -17,6 +18,9 @@ document
 
     const respuesta = await fetch(API_URL, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(datos),
     });
 
