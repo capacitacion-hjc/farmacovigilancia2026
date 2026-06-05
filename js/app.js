@@ -22,10 +22,13 @@ document
         body: JSON.stringify(datos)
     });
 
+    
+const resultado = await respuesta.json();
 
     document.getElementById("resultado").innerHTML = `
       <div class="alert alert-success">
-      Registro enviado correctamente.
+      Registro enviado correctamente. Folio asignado:
+      <b>${resultado.folio}</b>
       </div>
       `;
 
