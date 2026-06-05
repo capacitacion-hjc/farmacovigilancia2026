@@ -1,5 +1,5 @@
 body{
-    background:#a57f2c;
+    background:#9d2449;
 }
 
 .card{
@@ -16,7 +16,7 @@ label{
 
 .bg-primary {
     --bs-bg-opacity: 1;
-    background-color: #611232 !important;
+    background-color: #DDC9A3 !important;
 }
 
 .btn-primary {
