@@ -22,3 +22,8 @@ label{
 .btn-primary {
     --bs-btn-bg: #611232;
 }
+
+.text-white {
+    --bs-text-opacity: 1;
+    color: rgb(141 20 49) !important;
+}
