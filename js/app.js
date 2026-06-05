@@ -17,11 +17,9 @@ document
     };
 
     const respuesta = await fetch(API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(datos),
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(datos)
     });
 
     const resultado = await respuesta.json();
