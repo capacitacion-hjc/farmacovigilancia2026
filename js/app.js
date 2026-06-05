@@ -1,5 +1,5 @@
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbw-5iKdeEAS-kCAvGkAxyOCRmgEmaDFBNdp1kZYzybY5ZLIbHs-joE6vMyHn8PJ2X-q/exec";
+  "https://script.google.com/macros/s/AKfycbyRL8JT9Kcr7yVGQ4wPcFEyauADmQti_bMTjXbHSLApQcv-Kt8rNWZiKCcNNYB86Y2u/exec";
 
 document
   .getElementById("registroForm")
