@@ -1,5 +1,5 @@
 const API_URL =
-  "https://script.google.com/macros/s/AKfycby5YQIrye_1O1eLAsc-AavFCsfkMlqLLQs9gbEhcah8pEH81H7NkxpKOOKqvbbWDmjG/exec";
+  "https://script.google.com/macros/s/AKfycbwo8NRuSEUCsw42kZ9eD1rTR33qMHM4XO01FMDhIaHjshHzMCVYWXX8N0o0xcqZQPk_/exec";
 
 document
   .getElementById("registroForm")
@@ -17,34 +17,59 @@ document
       gradoAcademico: document.getElementById("gradoAcademico").value,
       modalidad: document.querySelector(
         'input[name="modalidad"]:checked'
-    ).value
+      ).value
     };
 
     try {
 
-      await fetch(API_URL, {
+      const respuesta = await fetch(API_URL, {
         method: "POST",
-        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain"
+        },
         body: JSON.stringify(datos)
       });
 
-      document.getElementById("resultado").innerHTML = `
-        <div class="alert alert-success">
-          Registro enviado correctamente.
-        </div>
-      `;
+      const resultado =
+        await respuesta.json();
 
-      document.getElementById("registroForm").reset();
+      if (resultado.success) {
+
+        document.getElementById("resultado")
+          .innerHTML = `
+              <div class="alert alert-success">
+                  <h5>Registro exitoso</h5>
+                  <p>
+                      Su folio es:
+                      <strong>${resultado.folio}</strong>
+                  </p>
+              </div>
+          `;
+
+        document
+          .getElementById("registroForm")
+          .reset();
+
+      } else {
+
+        document.getElementById("resultado")
+          .innerHTML = `
+              <div class="alert alert-danger">
+                  ${resultado.error}
+              </div>
+          `;
+      }
 
     } catch (error) {
 
-      document.getElementById("resultado").innerHTML = `
-        <div class="alert alert-danger">
-          Ocurrió un error al registrar la información.
-        </div>
-      `;
-
       console.error(error);
+
+      document.getElementById("resultado")
+        .innerHTML = `
+          <div class="alert alert-danger">
+              Error de comunicación con el servidor.
+          </div>
+      `;
     }
 
     document.getElementById("registroForm").reset();
