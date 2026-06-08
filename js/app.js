@@ -37,12 +37,13 @@ document
 
         document.getElementById("resultado")
           .innerHTML = `
-              <div class="alert alert-success">
-                  <h5>Registro exitoso</h5>
+              <div class="alert alert-success" style="text-align:center;">
+                  <h3>Registro exitoso
                   <p>
                       Su folio es:
                       <strong>${resultado.folio}</strong>
                   </p>
+                  </h3>
               </div>
           `;
 
