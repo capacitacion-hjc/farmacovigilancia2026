@@ -15,9 +15,7 @@ document
       correo: document.getElementById("correo").value,
       profesion: document.getElementById("profesion").value,
       gradoAcademico: document.getElementById("gradoAcademico").value,
-      modalidad: document.querySelector(
-        'input[name="modalidad"]:checked'
-      ).value
+      modalidad: "Presencial"
     };
 
     try {
