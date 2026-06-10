@@ -28,14 +28,15 @@
 
                 </div>
 
-                <h2>Hospital Juárez Centro</h2>
+                <h1>Hospital Juárez Centro</h1>
                 <h2>"Centro Institucional de Farmacovigilancia"</h2>
+                <h2>2° Curso de Farmacología</h2><br>
 
-                <h3>2° Curso de Farmacología</h3><br>
-                <h4>(Modalidad, solo presencial)</h4>
+                <h3>Registro de Participantes</h4>
+                    <h6>(Modalidad, solo presencial)</h6>
 
 
-                <h5>Registro de Participantes</h5>
+
 
             </div>
 
@@ -193,21 +194,25 @@
                     </div>
                 -->
 
+                    <br>
                     <div class="form-check mb-3">
 
                         <input type="checkbox" class="form-check-input" required>
 
                         <label class="form-check-label">
 
-                            Confirmo que he leído el Aviso de Privacidad y doy mi consentimiento informado para el uso de mis datos personales conforme a las finalidades del 2° Curso de Farmacología del Hospital Juárez del Centro.
+                            Confirmo que he leído el Aviso de Privacidad y doy mi consentimiento informado para el uso
+                            de mis datos personales conforme a las finalidades del 2° Curso de Farmacología del Hospital
+                            Juárez del Centro.
 
                         </label>
 
                     </div>
 
+                    <br>
                     <div id="resultado" class="mt-4"></div>
 
-                    <button type="submit" class="btn btn-primary w-100">
+                    <button id = "btnRegistrar" type="submit" class="btn btn-primary w-100">
 
                         Enviar Registro
 
@@ -225,6 +230,25 @@
     </div>
 
     <script src="js/app.js"></script>
+
+    <div id="loader" class="loader-overlay d-none">
+
+        <div class="text-center">
+
+            <div class="spinner-border text-primary" role="status" style="width:4rem;height:4rem;">
+            </div>
+
+            <div class="mt-3">
+                <strong>Registrando información...</strong>
+            </div>
+
+            <small class="text-muted">
+                Espere un momento por favor.
+            </small>
+
+        </div>
+
+    </div>
 
 </body>
 
