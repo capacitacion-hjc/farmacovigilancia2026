@@ -7,18 +7,26 @@ document
 
     e.preventDefault();
 
-    const datos = {
-      nombre: document.getElementById("nombre").value,
-      sexo: document.getElementById("sexo").value,
-      estado: document.getElementById("estado").value,
-      institucion: document.getElementById("institucion").value,
-      correo: document.getElementById("correo").value,
-      profesion: document.getElementById("profesion").value,
-      gradoAcademico: document.getElementById("gradoAcademico").value,
-      modalidad: "Presencial"
-    };
+    document
+      .getElementById("loader")
+      .classList.remove("d-none");
 
     try {
+
+      const datos = {
+        nombre: document.getElementById("nombre").value,
+        sexo: document.getElementById("sexo").value,
+        estado: document.getElementById("estado").value,
+        institucion: document.getElementById("institucion").value,
+        correo: document.getElementById("correo").value,
+        profesion: document.getElementById("profesion").value,
+        gradoAcademico: document.getElementById("gradoAcademico").value,
+        modalidad: "Presencial"
+      };
+
+      document
+        .getElementById("btnRegistrar")
+        .disabled = true;
 
       const respuesta = await fetch(API_URL, {
         method: "POST",
@@ -31,45 +39,39 @@ document
       const resultado =
         await respuesta.json();
 
-      if (resultado.success) {
+      document.getElementById("resultado").innerHTML = `
+        <div class="alert alert-success" style="text-align:center;">
+           <h3> Registro exitoso<br>
+            Folio:
+            <strong>${resultado.folio}</strong>
+            </h3>
+        </div>
+      `;
 
-        document.getElementById("resultado")
-          .innerHTML = `
-              <div class="alert alert-success" style="text-align:center;">
-                  <h3>Registro exitoso
-                  <p>
-                      Su folio es:
-                      <strong>${resultado.folio}</strong>
-                  </p>
-                  </h3>
-              </div>
-          `;
-
-        document
-          .getElementById("registroForm")
-          .reset();
-
-      } else {
-
-        document.getElementById("resultado")
-          .innerHTML = `
-              <div class="alert alert-danger">
-                  ${resultado.error}
-              </div>
-          `;
-      }
+      document
+        .getElementById("registroForm")
+        .reset();
 
     } catch (error) {
 
       console.error(error);
 
-      document.getElementById("resultado")
-        .innerHTML = `
-          <div class="alert alert-danger">
-              Error de comunicación con el servidor.
-          </div>
+      document.getElementById("resultado").innerHTML = `
+        <div class="alert alert-danger">
+            Error al registrar la información.
+        </div>
       `;
+
+    } finally {
+
+      document
+        .getElementById("loader")
+        .classList.add("d-none");
+
+      document
+        .getElementById("btnRegistrar")
+        .disabled = false;
+
     }
 
-    document.getElementById("registroForm").reset();
   });
