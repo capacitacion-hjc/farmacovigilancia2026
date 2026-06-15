@@ -1,5 +1,5 @@
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbwo8NRuSEUCsw42kZ9eD1rTR33qMHM4XO01FMDhIaHjshHzMCVYWXX8N0o0xcqZQPk_/exec";
+  "https://script.google.com/macros/s/AKfycby78tunTVmPqvxswckMHxcmWx5T_ypvAwC2z1jcNvJtoZbgN5TOJoeFr17frZHEMp6B/exec";
 
 document
   .getElementById("registroForm")
@@ -16,9 +16,11 @@ document
       const datos = {
         nombre: document.getElementById("nombre").value,
         sexo: document.getElementById("sexo").value,
+        edad: document.getElementById("edad").value,
         estado: document.getElementById("estado").value,
         institucion: document.getElementById("institucion").value,
         correo: document.getElementById("correo").value,
+        telefono: document.getElementById("telefono").value,
         profesion: document.getElementById("profesion").value,
         gradoAcademico: document.getElementById("gradoAcademico").value,
         modalidad: "Presencial"

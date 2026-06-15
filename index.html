@@ -44,135 +44,157 @@
 
                 Completa el siguiente formulario todos los campos son obligatorios.
                 <br> <br>
-                <form id="registroForm">
+                <div class="form-check mb-3">
+                    <form id="registroForm">
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Nombre Completo
-                        </label>
-                        <input type="text" id="nombre" class="form-control" required>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Nombre Completo
+                            </label>
+                            <input type="text" id="nombre" class="form-control" required>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Sexo
-                        </label>
-                        <select id="sexo" class="form-select" required>
+                        <div class="row">
+                            <div class="col-md-2 mb-3">
+                                <label class="form-label">
+                                    Edad <span class="text-danger">*</span>
+                                </label>
 
-                            <option value="">
-                                Seleccione
-                            </option>
+                                <input type="number" id="edad" class="form-control" min="18" max="99" required>
+                            </div>
 
-                            <option>Mujer</option>
-                            <option>Hombre</option>
-                            <option>Otro</option>
-                        </select>
-                    </div>
+                            <div class="col-md-10 mb-3">
+                                <label class="form-label">
+                                    Sexo
+                                </label>
+                                <select id="sexo" class="form-select" required>
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Entidad Federativa
-                        </label>
+                                    <option value="">
+                                        Seleccione
+                                    </option>
 
-                        <select id="estado" class="form-select" required>
+                                    <option>Mujer</option>
+                                    <option>Hombre</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                        </div>
 
-                            <option value="">
-                                Seleccione
-                            </option>
 
-                            <option>Aguascalientes</option>
-                            <option>Baja California</option>
-                            <option>Baja California Sur</option>
-                            <option>Campeche</option>
-                            <option>Chiapas</option>
-                            <option>Chihuahua</option>
-                            <option>Ciudad de México</option>
-                            <option>Coahuila</option>
-                            <option>Colima</option>
-                            <option>Durango</option>
-                            <option>Estado de México</option>
-                            <option>Guanajuato</option>
-                            <option>Guerrero</option>
-                            <option>Hidalgo</option>
-                            <option>Jalisco</option>
-                            <option>Michoacán</option>
-                            <option>Morelos</option>
-                            <option>Nayarit</option>
-                            <option>Nuevo León</option>
-                            <option>Oaxaca</option>
-                            <option>Puebla</option>
-                            <option>Querétaro</option>
-                            <option>Quintana Roo</option>
-                            <option>San Luis Potosí</option>
-                            <option>Sinaloa</option>
-                            <option>Sonora</option>
-                            <option>Tabasco</option>
-                            <option>Tamaulipas</option>
-                            <option>Tlaxcala</option>
-                            <option>Veracruz</option>
-                            <option>Yucatán</option>
-                            <option>Zacatecas</option>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Entidad Federativa
+                            </label>
 
-                        </select>
-                    </div>
+                            <select id="estado" class="form-select" required>
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Unidad o Institución de Procedencia
-                        </label>
+                                <option value="">
+                                    Seleccione
+                                </option>
 
-                        <input type="text" id="institucion" class="form-control" required>
-                    </div>
+                                <option>Aguascalientes</option>
+                                <option>Baja California</option>
+                                <option>Baja California Sur</option>
+                                <option>Campeche</option>
+                                <option>Chiapas</option>
+                                <option>Chihuahua</option>
+                                <option>Ciudad de México</option>
+                                <option>Coahuila</option>
+                                <option>Colima</option>
+                                <option>Durango</option>
+                                <option>Estado de México</option>
+                                <option>Guanajuato</option>
+                                <option>Guerrero</option>
+                                <option>Hidalgo</option>
+                                <option>Jalisco</option>
+                                <option>Michoacán</option>
+                                <option>Morelos</option>
+                                <option>Nayarit</option>
+                                <option>Nuevo León</option>
+                                <option>Oaxaca</option>
+                                <option>Puebla</option>
+                                <option>Querétaro</option>
+                                <option>Quintana Roo</option>
+                                <option>San Luis Potosí</option>
+                                <option>Sinaloa</option>
+                                <option>Sonora</option>
+                                <option>Tabasco</option>
+                                <option>Tamaulipas</option>
+                                <option>Tlaxcala</option>
+                                <option>Veracruz</option>
+                                <option>Yucatán</option>
+                                <option>Zacatecas</option>
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Correo Institucional ó Personal
-                        </label>
+                            </select>
+                        </div>
 
-                        <input type="email" id="correo" class="form-control" required>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Unidad ó Institución de Procedencia
+                            </label>
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Profesión
-                        </label>
+                            <input type="text" id="institucion" class="form-control" required>
+                        </div>
 
-                        <select id="profesion" class="form-select" required>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Correo Institucional ó Personal
+                                </label>
 
-                            <option value="">
-                                Seleccione
-                            </option>
+                                <input type="email" id="correo" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Teléfono <span class="text-danger">*</span>
+                                </label>
 
-                            <option>Médico</option>
-                            <option>Enfermería</option>
-                            <option>Químico</option>
-                            <option>Estudiante</option>
-                            <option>Pasante</option>
-                            <option>Otro</option>
+                                <input type="tel" id="telefono" class="form-control" maxlength="10" pattern="[0-9]{10}"
+                                    placeholder="10 dígitos" required>
+                            </div>
+                        </div>
 
-                        </select>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Profesión
+                            </label>
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Grado académico
-                        </label>
+                            <select id="profesion" class="form-select" required>
 
-                        <select id="gradoAcademico" class="form-select" required>
+                                <option value="">
+                                    Seleccione
+                                </option>
 
-                            <option value="">
-                                Seleccione
-                            </option>
+                                <option>Médico</option>
+                                <option>Enfermería</option>
+                                <option>Químico</option>
+                                <option>Estudiante</option>
+                                <option>Pasante</option>
+                                <option>Otro</option>
 
-                            <option>Técnico</option>
-                            <option>Licenciatura</option>
-                            <option>Posgrado</option>
-                            <option>Maestría</option>
-                            <option>Doctorado</option>
-                        </select>
-                    </div>
+                            </select>
+                        </div>
 
-                    <!--
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Grado académico
+                            </label>
+
+                            <select id="gradoAcademico" class="form-select" required>
+
+                                <option value="">
+                                    Seleccione
+                                </option>
+
+                                <option>Técnico</option>
+                                <option>Licenciatura</option>
+                                <option>Posgrado</option>
+                                <option>Maestría</option>
+                                <option>Doctorado</option>
+                            </select>
+                        </div>
+
+                        <!--
                     <div class="card border-primary mb-3">
                         <div class="card-body">
 
@@ -194,29 +216,32 @@
                     </div>
                 -->
 
-                    <br>
-                    <div class="form-check mb-3">                        
+                        <br>
+                        <div class="form-check mb-3">
 
-                        <label class="form-check-label">
-                            <input type="checkbox"  required>
-                            Confirmo que he leído el Aviso de Privacidad y doy mi consentimiento informado para el uso
-                            de mis datos personales conforme a las finalidades del 2° Curso de Farmacología del Hospital
-                            Juárez del Centro.
+                            <label class="form-check-label">
+                                <input type="checkbox" required>
+                                Confirmo que he leído el Aviso de Privacidad y doy mi consentimiento informado para el
+                                uso
+                                de mis datos personales conforme a las finalidades del 2° Curso de Farmacología del
+                                Hospital
+                                Juárez del Centro.
 
-                        </label>
+                            </label>
 
-                    </div>
+                        </div>
 
-                    <br>
-                    <div id="resultado" class="mt-4"></div>
+                        <br>
+                        <div id="resultado" class="mt-4"></div>
 
-                    <button id = "btnRegistrar" type="submit" class="btn btn-primary w-100">
+                        <button id="btnRegistrar" type="submit" class="btn btn-primary w-100">
 
-                        Enviar Registro
+                            Enviar Registro
 
-                    </button>
+                        </button>
 
-                </form>
+                    </form>
+                </div>
 
 
 
