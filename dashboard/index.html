@@ -1,1 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dashboard - Registro de Participantes</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- ChartJS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css">
+
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body class="bg-light">
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="../">
+
+            <i class="bi bi-hospital"></i>
+
+            Dashboard Estadístico
+
+        </a>
+
+        <span class="navbar-text text-white">
+
+            2.º Curso de Farmacología
+
+        </span>
+
+    </div>
+
+</nav>
+
+<!-- ================= CONTENEDOR ================= -->
+
+<div class="container my-4">
+
+<!-- ================= KPI ================= -->
+
+<div class="row g-3 mb-4">
+
+<div class="col-md-3">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h6>Total Registrados</h6>
+
+<h2 id="kpiTotal">0</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h6>Presencial</h6>
+
+<h2 id="kpiPresencial">0</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h6>Virtual</h6>
+
+<h2 id="kpiVirtual">0</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h6>Estados</h6>
+
+<h2 id="kpiEstados">0</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= GRAFICAS ================= -->
+
+<div class="row">
+
+<div class="col-lg-6 mb-4">
+
+<div class="card shadow">
+
+<div class="card-header">
+
+Profesión
+
+</div>
+
+<div class="card-body">
+
+<canvas id="chartProfesion"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-6 mb-4">
+
+<div class="card shadow">
+
+<div class="card-header">
+
+Modalidad
+
+</div>
+
+<div class="card-body">
+
+<canvas id="chartModalidad"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-12">
+
+<div class="card shadow">
+
+<div class="card-header">
+
+Participantes por Estado
+
+</div>
+
+<div class="card-body">
+
+<canvas id="chartEstados"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= BOTONES ================= -->
+
+<div class="mt-4 mb-3 d-flex justify-content-end gap-2">
+
+<button
+class="btn btn-success"
+id="btnCSV">
+
+<i class="bi bi-file-earmark-excel"></i>
+
+Descargar CSV
+
+</button>
+
+<button
+class="btn btn-primary"
+id="btnActualizar">
+
+<i class="bi bi-arrow-clockwise"></i>
+
+Actualizar
+
+</button>
+
+</div>
+
+<!-- ================= TABLA ================= -->
+
+<div class="card shadow">
+
+<div class="card-header">
+
+Listado de Participantes
+
+</div>
+
+<div class="card-body">
+
+<table
+id="tablaParticipantes"
+class="table table-striped table-hover">
+
+<thead>
+
+<tr>
+
+<th>Folio</th>
+
+<th>Nombre</th>
+
+<th>Edad</th>
+
+<th>Teléfono</th>
+
+<th>Estado</th>
+
+<th>Institución</th>
+
+<th>Correo</th>
+
+<th>Profesión</th>
+
+<th>Modalidad</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<footer class="text-center py-4">
+
+<small class="text-muted">
+
+Dashboard Estadístico v1.0
+
+<br>
+
+Desarrollo e implementación:
+<b>Eduardo Javier Pérez Galván</b>
+
+</small>
+
+</footer>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- DataTables -->
+<script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
+
+<script src="charts.js"></script>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>
