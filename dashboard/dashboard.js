@@ -128,9 +128,7 @@ function cargarTabla() {
 
     });
 
-    tabla =
-        new DataTable("#tablaParticipantes");
-
+    tabla = $("#tablaParticipantes").DataTable();
 }
 
 
