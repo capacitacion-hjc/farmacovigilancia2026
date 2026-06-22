@@ -1,0 +1,226 @@
+/* ==========================================================
+   DASHBOARD ESTADÍSTICO
+   Hospital - Capacitación
+   Autor: Eduardo Javier Pérez Galván
+========================================================== */
+
+body{
+    background:#f5f7fa;
+    font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.navbar-brand{
+    font-weight:600;
+    letter-spacing:.5px;
+}
+
+/* ================= TARJETAS KPI ================= */
+
+.card{
+    border:none;
+    border-radius:15px;
+    transition:.25s;
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+
+}
+
+.card-header{
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    font-weight:600;
+
+}
+
+.card-body h2{
+
+    font-size:2.3rem;
+
+    font-weight:bold;
+
+    color:#0d6efd;
+
+}
+
+/* ================= KPI ================= */
+
+.kpi-card{
+
+    border-left:5px solid #0d6efd;
+
+}
+
+.kpi-title{
+
+    color:#6c757d;
+
+    font-size:.9rem;
+
+    text-transform:uppercase;
+
+}
+
+.kpi-number{
+
+    font-size:2.2rem;
+
+    font-weight:bold;
+
+}
+
+/* ================= BOTONES ================= */
+
+.btn{
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+.btn-primary,
+.btn-success{
+
+    padding:10px 20px;
+
+}
+
+/* ================= TABLA ================= */
+
+table{
+
+    font-size:.90rem;
+
+}
+
+thead{
+
+    background:#0d6efd;
+
+    color:white;
+
+}
+
+table tbody tr:hover{
+
+    background:#eef5ff;
+
+}
+
+/* ================= CHART ================= */
+
+canvas{
+
+    max-height:420px;
+
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    margin-top:60px;
+
+    color:#6c757d;
+
+}
+
+/* ================= LOADER ================= */
+
+.loader{
+
+    display:none;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(255,255,255,.8);
+
+    z-index:9999;
+
+}
+
+.loader .spinner-border{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+}
+
+/* ================= ANIMACIONES ================= */
+
+.card{
+
+    animation:fadeIn .5s;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.card-body h2{
+
+    font-size:1.8rem;
+
+}
+
+.card-header{
+
+    text-align:center;
+
+}
+
+.navbar-brand{
+
+    font-size:1rem;
+
+}
+
+}
