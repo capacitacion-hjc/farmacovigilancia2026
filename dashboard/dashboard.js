@@ -84,3 +84,94 @@ function actualizarKPIs(){
         estados.length;
 
 }
+
+function cargarTabla(){
+
+    if(tabla){
+
+        tabla.destroy();
+
+    }
+
+    const tbody =
+        document.querySelector("#tablaParticipantes tbody");
+
+    tbody.innerHTML="";
+
+    participantes.forEach(p=>{
+
+        tbody.innerHTML +=`
+
+<tr>
+
+<td>${p.folio}</td>
+
+<td>${p.nombre}</td>
+
+<td>${p.edad}</td>
+
+<td>${p.telefono}</td>
+
+<td>${p.estado}</td>
+
+<td>${p.institucion}</td>
+
+<td>${p.correo}</td>
+
+<td>${p.profesion}</td>
+
+<td>${p.modalidad}</td>
+
+</tr>
+
+`;
+
+    });
+
+    tabla =
+        new DataTable("#tablaParticipantes");
+
+}
+
+
+function descargarCSV(){
+
+    let csv =
+
+"Folio,Nombre,Edad,Telefono,Estado,Institucion,Correo,Profesion,Modalidad\n";
+
+    participantes.forEach(p=>{
+
+        csv +=
+`${p.folio},
+${p.nombre},
+${p.edad},
+${p.telefono},
+${p.estado},
+${p.institucion},
+${p.correo},
+${p.profesion},
+${p.modalidad}\n`;
+
+    });
+
+    const blob =
+        new Blob(
+            [csv],
+            {
+                type:"text/csv;charset=utf-8;"
+            }
+        );
+
+    const link =
+        document.createElement("a");
+
+    link.href =
+        URL.createObjectURL(blob);
+
+    link.download =
+        "Participantes.csv";
+
+    link.click();
+
+}
