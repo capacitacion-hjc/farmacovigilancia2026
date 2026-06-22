@@ -3,7 +3,7 @@
 // =========================================
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycby78tunTVmPqvxswckMHxcmWx5T_ypvAwC2z1jcNvJtoZbgN5TOJoeFr17frZHEMp6B/exec?action=dashboard";
+    "https://script.google.com/macros/s/AKfycby78tunTVmPqvxswckMHxcmWx5T_ypvAwC2z1jcNvJtoZbgN5TOJoeFr17frZHEMp6B/exec?action=dashboard";
 
 let participantes = [];
 let tabla = null;
@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // CARGAR DATOS
 // =========================================
 
-async function cargarDashboard(){
+async function cargarDashboard() {
 
-    try{
+    try {
 
         const respuesta = await fetch(API_URL);
 
@@ -44,7 +44,7 @@ async function cargarDashboard(){
 
         crearGraficas(participantes);
 
-    }catch(error){
+    } catch (error) {
 
         console.error(error);
 
@@ -58,25 +58,25 @@ async function cargarDashboard(){
 // KPI
 // =========================================
 
-function actualizarKPIs(){
+function actualizarKPIs() {
 
     document.getElementById("kpiTotal").innerText =
         participantes.length;
 
     document.getElementById("kpiPresencial").innerText =
         participantes.filter(
-            x=>x.modalidad=="Presencial"
+            x => x.modalidad == "Presencial"
         ).length;
 
     document.getElementById("kpiVirtual").innerText =
         participantes.filter(
-            x=>x.modalidad=="Virtual"
+            x => x.modalidad == "Virtual"
         ).length;
 
     const estados =
         [...new Set(
             participantes.map(
-                x=>x.estado
+                x => x.estado
             )
         )];
 
@@ -85,9 +85,9 @@ function actualizarKPIs(){
 
 }
 
-function cargarTabla(){
+function cargarTabla() {
 
-    if(tabla){
+    if (tabla) {
 
         tabla.destroy();
 
@@ -96,35 +96,35 @@ function cargarTabla(){
     const tbody =
         document.querySelector("#tablaParticipantes tbody");
 
-    tbody.innerHTML="";
+    tbody.innerHTML = "";
 
-    participantes.forEach(p=>{
+    participantes.forEach(p => {
 
-        tbody.innerHTML +=`
-
-<tr>
-
-<td>${p.folio}</td>
-
-<td>${p.nombre}</td>
-
-<td>${p.edad}</td>
-
-<td>${p.telefono}</td>
-
-<td>${p.estado}</td>
-
-<td>${p.institucion}</td>
-
-<td>${p.correo}</td>
-
-<td>${p.profesion}</td>
-
-<td>${p.modalidad}</td>
-
-</tr>
-
-`;
+        tbody.innerHTML += `
+        <tr>
+        
+        <td>${p.folio}</td>
+        
+        <td>${p.nombre}</td>
+        
+        <td>${p.sexo}</td>
+        
+        <td>${p.edad}</td>
+        
+        <td>${p.telefono}</td>
+        
+        <td>${p.estado}</td>
+        
+        <td>${p.institucion}</td>
+        
+        <td>${p.correo}</td>
+        
+        <td>${p.profesion}</td>
+        
+        <td>${p.modalidad}</td>
+        
+        </tr>
+        `;
 
     });
 
@@ -134,16 +134,16 @@ function cargarTabla(){
 }
 
 
-function descargarCSV(){
+function descargarCSV() {
 
     let csv =
 
-"Folio,Nombre,Edad,Telefono,Estado,Institucion,Correo,Profesion,Modalidad\n";
+        "Folio,Nombre,Edad,Telefono,Estado,Institucion,Correo,Profesion,Modalidad\n";
 
-    participantes.forEach(p=>{
+    participantes.forEach(p => {
 
         csv +=
-`${p.folio},
+            `${p.folio},
 ${p.nombre},
 ${p.edad},
 ${p.telefono},
@@ -159,7 +159,7 @@ ${p.modalidad}\n`;
         new Blob(
             [csv],
             {
-                type:"text/csv;charset=utf-8;"
+                type: "text/csv;charset=utf-8;"
             }
         );
 
