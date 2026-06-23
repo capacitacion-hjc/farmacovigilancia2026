@@ -187,7 +187,7 @@ function crearGraficaEstados(datos) {
 
                 datasets: [{
 
-                    label: "Participantes",
+                    //label: "Participantes",
 
                     data: Object.values(conteo),
 
