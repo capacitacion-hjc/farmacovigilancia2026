@@ -65,12 +65,12 @@ function actualizarKPIs() {
 
     document.getElementById("kpiHombres").innerText =
         participantes.filter(
-            x.sexo.toLowerCase() === "Hombre"
+            x.sexo === "Hombre"
         ).length;
 
     document.getElementById("kpiMujeres").innerText =
         participantes.filter(
-            x.sexo.toLowerCase() === "Mujer"
+            x.sexo === "Mujer"
         ).length;
 
     const estados =
