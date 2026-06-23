@@ -20,6 +20,11 @@ body{
     letter-spacing:.5px;
 }
 
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: #611232 !important;
+}
+
 /* ================= TARJETAS KPI ================= */
 
 .card{
