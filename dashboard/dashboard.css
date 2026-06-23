@@ -101,6 +101,8 @@ body{
 .btn-success{
 
     padding:10px 20px;
+    background-color: #a57f2c;
+    border-color: #a57f2c;
 
 }
 
@@ -123,6 +125,12 @@ thead{
 table tbody tr:hover{
 
     background:#eef5ff;
+
+}
+
+.page-link.active{
+    background-color: #a57f2c;
+    border-color: #a57f2c;
 
 }
 
