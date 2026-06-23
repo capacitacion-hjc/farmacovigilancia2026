@@ -128,9 +128,9 @@ table tbody tr:hover{
 
 }
 
-.page-link.active{
-    background-color: #a57f2c;
-    border-color: #a57f2c;
+.pagination{
+    --bs-pagination-active-bg: #a57f2c;
+    --bs-pagination-active-border-color: #a57f2c;
 
 }
 
