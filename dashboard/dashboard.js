@@ -126,42 +126,67 @@ function cargarTabla() {
 
 function descargarCSV() {
 
-    let csv =
+    const encabezados = [
+        "Folio",
+        "Nombre",
+        "Sexo",
+        "Edad",
+        "Estado",
+        "Institución",
+        "Profesión",
+        "Grado Académico",
+        "Modalidad"
+    ];
 
-        "Folio,Nombre,Edad,Telefono,Estado,Institucion,Correo,Profesion,Modalidad\n";
+    let csv = encabezados.join(",") + "\r\n";
 
     participantes.forEach(p => {
 
-        csv +=
-            `${p.folio},
-${p.nombre},
-${p.edad},
-${p.telefono},
-${p.estado},
-${p.institucion},
-${p.correo},
-${p.profesion},
-${p.modalidad}\n`;
+        const fila = [
+
+            p.folio,
+            p.nombre,
+            p.sexo,
+            p.edad,
+            p.estado,
+            p.institucion,
+            p.profesion,
+            p.gradoAcademico,
+            p.modalidad
+
+        ].map(valor => {
+
+            if (valor === null || valor === undefined) return "";
+
+            return `"${String(valor).replace(/"/g, '""')}"`;
+
+        });
+
+        csv += fila.join(",") + "\r\n";
 
     });
 
-    const blob =
-        new Blob(
-            [csv],
-            {
-                type: "text/csv;charset=utf-8;"
-            }
-        );
+    // BOM UTF-8 para Excel
+    const blob = new Blob(
+        ["\uFEFF" + csv],
+        {
+            type: "text/csv;charset=utf-8;"
+        }
+    );
 
-    const link =
-        document.createElement("a");
+    const enlace = document.createElement("a");
 
-    link.href =
-        URL.createObjectURL(blob);
+    enlace.href = URL.createObjectURL(blob);
 
-    link.download =
-        "Participantes.csv";
+    const fecha = new Date();
 
-    link.click();
+    enlace.download =
+        `Participantes_${fecha.getFullYear()}-${String(fecha.getMonth()+1).padStart(2,"0")}-${String(fecha.getDate()).padStart(2,"0")}.csv`;
+
+    document.body.appendChild(enlace);
+
+    enlace.click();
+
+    document.body.removeChild(enlace);
 
 }
