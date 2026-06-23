@@ -130,12 +130,10 @@ function descargarCSV() {
         "Folio",
         "Nombre",
         "Sexo",
-        "Edad",
         "Estado",
         "Institución",
         "Profesión",
         "Grado Académico",
-        "Modalidad"
     ];
 
     let csv = encabezados.join(",") + "\r\n";
@@ -147,12 +145,10 @@ function descargarCSV() {
             p.folio,
             p.nombre,
             p.sexo,
-            p.edad,
             p.estado,
             p.institucion,
             p.profesion,
             p.gradoAcademico,
-            p.modalidad
 
         ].map(valor => {
 
