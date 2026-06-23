@@ -59,7 +59,9 @@ function crearGraficaProfesion(datos) {
 
                     data: Object.values(conteo),
 
-                    borderWidth: 1
+                    borderWidth: 1,
+                    borderColor: '#13322e',
+                    backgroundColor: '#98989A'
 
                 }]
 
@@ -189,7 +191,9 @@ function crearGraficaEstados(datos) {
 
                     data: Object.values(conteo),
 
-                    borderWidth: 1
+                    borderWidth: 1,
+                    borderColor: '#13322e',
+                    backgroundColor: '#98989A'
 
                 }]
 
