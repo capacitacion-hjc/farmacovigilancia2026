@@ -201,6 +201,10 @@ function crearGraficaEstados(datos) {
 
             options: {
 
+                legend: {
+                    display: false
+                },
+
                 indexAxis: 'y',
 
                 responsive: true,
