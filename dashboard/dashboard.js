@@ -63,14 +63,14 @@ function actualizarKPIs() {
     document.getElementById("kpiTotal").innerText =
         participantes.length;
 
-    document.getElementById("kpiPresencial").innerText =
+    document.getElementById("kpiHombres").innerText =
         participantes.filter(
-            x => x.modalidad == "Presencial"
+            x.sexo.toLowerCase() === "Hombre"
         ).length;
 
-    document.getElementById("kpiVirtual").innerText =
+    document.getElementById("kpiMujeres").innerText =
         participantes.filter(
-            x => x.modalidad == "Virtual"
+            x.sexo.toLowerCase() === "Mujer"
         ).length;
 
     const estados =
@@ -107,21 +107,13 @@ function cargarTabla() {
         
         <td>${p.nombre}</td>
         
-        <td>${p.sexo}</td>
-        
-        <td>${p.edad}</td>
-        
-        <td>${p.telefono}</td>
-        
+        <td>${p.sexo}</td>        
+            
         <td>${p.estado}</td>
         
-        <td>${p.institucion}</td>
-        
-        <td>${p.correo}</td>
-        
-        <td>${p.profesion}</td>
-        
-        <td>${p.modalidad}</td>
+        <td>${p.institucion}</td>        
+  
+        <td>${p.profesion}</td>        
         
         </tr>
         `;
