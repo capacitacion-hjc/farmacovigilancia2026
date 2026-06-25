@@ -41,6 +41,17 @@ document
       const resultado =
         await respuesta.json();
 
+        if (!resultado.success) {
+
+          document.getElementById("resultado").innerHTML = `
+              <div class="alert alert-danger">
+                  ${resultado.mensaje}
+              </div>
+          `;
+      
+          return;
+      }
+
       document.getElementById("resultado").innerHTML = `
         <div class="alert alert-success" style="text-align:center;">
            <h3> Registro exitoso<br>
