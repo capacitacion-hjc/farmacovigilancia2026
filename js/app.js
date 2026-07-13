@@ -38,18 +38,40 @@ document
         body: JSON.stringify(datos)
       });
 
-      const resultado =
-        await respuesta.json();
+      const resultado = await respuesta.json();
 
-        if (!resultado.success) {
+      if (resultado.cupoLleno) {
 
-          document.getElementById("resultado").innerHTML = `
+        document.getElementById("resultado").innerHTML = `
+              <div class="alert alert-warning text-center">
+      
+                  <h5 class="mb-2">
+                      <i class="bi bi-exclamation-triangle-fill"></i>
+                      Cupo lleno.
+                  </h5>
+      
+                  <p class="mb-0">
+                      ${resultado.mensaje}
+                  </p>
+      
+              </div>
+          `;
+
+        document.querySelectorAll("#registroForm input, #registroForm select, #registroForm button")
+          .forEach(campo => campo.disabled = true);
+
+        return;
+      }
+
+      if (!resultado.success) {
+
+        document.getElementById("resultado").innerHTML = `
               <div class="alert alert-danger">
                   ${resultado.mensaje}
               </div>
           `;
-      
-          return;
+
+        return;
       }
 
       document.getElementById("resultado").innerHTML = `
