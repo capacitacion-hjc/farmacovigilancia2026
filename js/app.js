@@ -23,7 +23,7 @@ document
         telefono: document.getElementById("telefono").value,
         profesion: document.getElementById("profesion").value,
         gradoAcademico: document.getElementById("gradoAcademico").value,
-        modalidad: "Presencial"
+        modalidad: document.querySelector('input[name="modalidad"]:checked').value
       };
 
       document
