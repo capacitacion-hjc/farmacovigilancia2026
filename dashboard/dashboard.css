@@ -40,7 +40,7 @@ body {
 .navbar {
 
     min-height: 64px;
-    background-color: #046398;
+    background-color: #046398 !important;
 
 
 }
