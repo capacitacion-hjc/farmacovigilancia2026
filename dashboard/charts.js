@@ -339,6 +339,9 @@ function crearGraficaEdades(datos) {
 
                     data:
                         Object.values(rangos),
+                        backgroundColor: [
+                            '#046398'
+                        ],
 
                     borderWidth: 1
 
