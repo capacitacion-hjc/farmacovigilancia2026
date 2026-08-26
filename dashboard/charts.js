@@ -82,6 +82,10 @@ function crearGraficaProfesion(datos) {
                         ordenado.map(
                             item => item[1]
                         ),
+                    
+                    backgroundColor: [
+                        '#046398'
+                    ],
 
                     borderWidth: 1
 
