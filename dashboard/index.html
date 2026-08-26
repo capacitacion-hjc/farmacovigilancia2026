@@ -2,237 +2,234 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Dashboard - Registro de Participantes</title>
-    <link rel="icon" href="../img/LOGOautorizado2010.png" type="image/gif" sizes="16x16">
-
+    <title>
+        Dashboard | Primer Congreso de Farmacovigilancia y Tecnovigilancia Hospitalaria
+    </title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
 
-    <!-- ChartJS -->
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- DataTables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">
-
     <link rel="stylesheet" href="dashboard.css">
-
 </head>
 
-<body class="bg-light">
+<body>
 
-    <!-- ================= NAVBAR ================= -->
+<!-- ================= NAVBAR ================= -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+<nav class="navbar navbar-dark bg-primary shadow-sm">
+    <div class="container-fluid px-4">
 
-        <div class="container">
+        <a class="navbar-brand fw-bold" href="../">
+            <i class="bi bi-hospital"></i>
+            Farmacovigilancia y Tecnovigilancia Hospitalaria
+        </a>
 
-            <a class="navbar-brand" href="../">
+        <span class="navbar-text text-white d-none d-md-block">
+            Dashboard Estadístico
+        </span>
 
-                <i class="bi bi-hospital"></i>
+    </div>
+</nav>
 
-                Hospital Juárez del Centro
 
-            </a>
+<!-- ================= CONTENIDO ================= -->
 
-            <span class="navbar-text text-white">
+<main class="container-fluid px-4 py-4">
 
-                Primer Congreso de Farmacovigilancia y Tecnovigilancia Hospitalaria
+    <!-- TÍTULO -->
 
-            </span>
+    <div class="dashboard-header mb-4">
+
+        <h1>
+            Dashboard Estadístico
+        </h1>
+
+        <p class="text-muted mb-1">
+            Primer Congreso de Farmacovigilancia y Tecnovigilancia Hospitalaria
+        </p>
+
+        <small id="ultimaActualizacion" class="text-muted">
+            Sin actualización
+        </small>
+
+    </div>
+
+
+    <!-- ================= KPI ================= -->
+
+    <div class="row g-3 mb-4">
+
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card kpi-card h-100">
+                <div class="card-body">
+
+                    <i class="bi bi-people-fill kpi-icon"></i>
+
+                    <div class="kpi-label">
+                        Total
+                    </div>
+
+                    <div id="kpiTotal" class="kpi-value">
+                        0
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card kpi-card h-100">
+                <div class="card-body">
+
+                    <i class="bi bi-gender-male kpi-icon"></i>
+
+                    <div class="kpi-label">
+                        Hombres
+                    </div>
+
+                    <div id="kpiHombres" class="kpi-value">
+                        0
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card kpi-card h-100">
+                <div class="card-body">
+
+                    <i class="bi bi-gender-female kpi-icon"></i>
+
+                    <div class="kpi-label">
+                        Mujeres
+                    </div>
+
+                    <div id="kpiMujeres" class="kpi-value">
+                        0
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card kpi-card h-100">
+                <div class="card-body">
+
+                    <i class="bi bi-person-workspace kpi-icon"></i>
+
+                    <div class="kpi-label">
+                        Presencial
+                    </div>
+
+                    <div id="kpiPresencial" class="kpi-value">
+                        0
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card kpi-card h-100">
+                <div class="card-body">
+
+                    <i class="bi bi-laptop kpi-icon"></i>
+
+                    <div class="kpi-label">
+                        Virtual
+                    </div>
+
+                    <div id="kpiVirtual" class="kpi-value">
+                        0
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card kpi-card h-100">
+                <div class="card-body">
+
+                    <i class="bi bi-geo-alt-fill kpi-icon"></i>
+
+                    <div class="kpi-label">
+                        Estados
+                    </div>
+
+                    <div id="kpiEstados" class="kpi-value">
+                        0
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ================= GRÁFICAS ================= -->
+
+    <div class="row g-4 mb-4">
+
+        <!-- PROFESIÓN -->
+
+        <div class="col-lg-6">
+
+            <div class="card dashboard-card h-100">
+
+                <div class="card-header">
+                    <i class="bi bi-bar-chart-fill"></i>
+                    Participantes por profesión
+                </div>
+
+                <div class="card-body chart-container">
+
+                    <canvas id="chartProfesion"></canvas>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </nav>
 
-    <!-- ================= CONTENEDOR ================= -->
+        <!-- MODALIDAD -->
 
-    <div class="container my-4">
+        <div class="col-lg-6">
 
-        <!-- ================= KPI ================= -->
+            <div class="card dashboard-card h-100">
 
-        <div class="row g-3 mb-4">
-
-            <div class="col-md-3">
-
-                <div class="card text-center shadow">
-
-                    <div class="card-body">
-
-                        <h6>Total Registrados</h6>
-
-                        <h2 id="kpiTotal">0</h2>
-
-                    </div>
-
+                <div class="card-header">
+                    <i class="bi bi-pie-chart-fill"></i>
+                    Participantes por modalidad
                 </div>
 
-            </div>
+                <div class="card-body chart-container">
 
-            <div class="col-md-3">
-
-                <div class="card text-center shadow">
-
-                    <div class="card-body">
-
-                        <h6>Mujeres</h6>
-
-                        <h2 id="kpiMujeres">0</h2>
-
-                    </div>
+                    <canvas id="chartModalidad"></canvas>
 
                 </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="card text-center shadow">
-
-                    <div class="card-body">
-
-                        <h6>Hombres</h6>
-
-                        <h2 id="kpiHombres">0</h2>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="card text-center shadow">
-
-                    <div class="card-body">
-
-                        <h6>Estados</h6>
-
-                        <h2 id="kpiEstados">0</h2>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- ================= GRAFICAS ================= -->
-
-        <div class="row">
-
-            <div class="col-lg-6 mb-4">
-
-                <div class="card shadow">
-
-                    <div class="card-header">
-
-                        Profesión
-
-                    </div>
-
-                    <div class="card-body">
-
-                        <canvas id="chartProfesion"></canvas>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-6">
-
-                <div class="card shadow">
-
-                    <div class="card-header">
-
-                        Participantes por rango de edad
-
-                    </div>
-
-                    <div class="card-body">
-
-                        <canvas id="chartEdades"></canvas>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>      
-
-        <!-- ================= BOTONES ================= -->
-
-        <div class="mt-4 mb-3 d-flex justify-content-end gap-2">
-
-            <button class="btn btn-success" id="btnCSV">
-
-                <i class="bi bi-file-earmark-excel"></i>
-
-                Descargar CSV
-
-            </button>
-
-            <button class="btn btn-primary" id="btnActualizar">
-
-                <i class="bi bi-arrow-clockwise"></i>
-
-                Actualizar
-
-            </button>
-
-        </div>
-
-        <!-- ================= TABLA ================= -->
-
-        <div class="card shadow">
-
-            <div class="card-header">
-
-                Listado de Participantes
-
-            </div>
-
-            <div class="card-body">
-
-                <table id="tablaParticipantes" class="table table-striped table-hover">
-
-                    <thead>
-
-                        <tr>
-
-                            <th>Folio</th>
-
-                            <th>Nombre</th>
-
-                            <th>Sexo</th>
-
-                            <th>Estado</th>
-
-                            <th>Institución</th>
-
-                            <th>Profesión</th>
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                    </tbody>
-
-                </table>
 
             </div>
 
@@ -240,37 +237,198 @@
 
     </div>
 
-    <footer class="text-center py-4">
 
-        <small class="text-muted">
+    <!-- RANGO DE EDADES -->
 
-            Dashboard Estadístico v1.0
+    <div class="row g-4 mb-4">
 
-            <br>
+        <div class="col-12">
 
-            Desarrollo e implementación:
-            <b>Eduardo Javier Pérez Galván</b>
+            <div class="card dashboard-card">
 
-        </small>
+                <div class="card-header">
+                    <i class="bi bi-bar-chart-steps"></i>
+                    Participantes por rango de edad
+                </div>
 
-    </footer>
+                <div class="card-body chart-container chart-age">
 
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+                    <canvas id="chartEdades"></canvas>
 
-    <!-- DataTables -->
-    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
+                </div>
 
-    <script src="charts.js"></script>
+            </div>
 
-    <script src="dashboard.js"></script>
+        </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </div>
 
-    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
 
-    <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+    <!-- ================= TABLA ================= -->
+
+    <div class="card dashboard-card">
+
+        <div class="card-header">
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+
+                <span>
+                    <i class="bi bi-table"></i>
+                    Participantes registrados
+                </span>
+
+                <div class="d-flex gap-2">
+
+                    <button
+                        type="button"
+                        id="btnCSV"
+                        class="btn btn-light btn-sm">
+
+                        <i class="bi bi-file-earmark-spreadsheet"></i>
+                        Descargar CSV
+
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnActualizar"
+                        class="btn btn-light btn-sm">
+
+                        <i class="bi bi-arrow-clockwise"></i>
+                        Actualizar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <!-- BUSCADOR -->
+
+            <div class="row mb-3">
+
+                <div class="col-md-6">
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            <i class="bi bi-search"></i>
+                        </span>
+
+                        <input
+                            type="search"
+                            id="buscarParticipante"
+                            class="form-control"
+                            placeholder="Buscar participante...">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLA -->
+
+            <div class="table-responsive">
+
+                <table
+                    id="tablaParticipantes"
+                    class="table table-striped table-hover align-middle">
+
+                    <thead>
+
+                        <tr>
+                            <th>Folio</th>
+                            <th>Nombre</th>
+                            <th>Sexo</th>
+                            <th>Edad</th>
+                            <th>Estado</th>
+                            <th>Institución</th>
+                            <th>Profesión</th>
+                            <th>Grado académico</th>
+                            <th>Modalidad</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- PAGINACIÓN -->
+
+            <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+
+                <small id="contadorTabla" class="text-muted">
+                    0 registros
+                </small>
+
+                <div
+                    id="paginacion"
+                    class="pagination-container">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= LOADER ================= -->
+
+<div id="loader" class="loader-overlay">
+
+    <div class="loader-box text-center">
+
+        <div
+            class="spinner-border text-primary"
+            role="status">
+        </div>
+
+        <div class="mt-3 fw-semibold">
+            Cargando información...
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="text-center py-4">
+
+    <small class="text-muted">
+
+        Dashboard Estadístico v1.0
+        <br>
+
+        Primer Congreso de Farmacovigilancia y Tecnovigilancia Hospitalaria
+        <br>
+
+        Desarrollo e implementación:
+        <strong>Eduardo Javier Pérez Galván</strong>
+
+    </small>
+
+</footer>
+
+
+<script src="charts.js"></script>
+<script src="dashboard.js"></script>
 
 </body>
-
 </html>

@@ -1,14 +1,15 @@
-// ==========================================
-// VARIABLES GLOBALES
-// ==========================================
+// ======================================================
+// VARIABLES DE GRÁFICAS
+// ======================================================
 
 let graficaProfesion = null;
 let graficaModalidad = null;
-let graficaEstados = null;
+let graficaEdades = null;
 
-// ==========================================
-// FUNCIÓN PRINCIPAL
-// ==========================================
+
+// ======================================================
+// CREAR TODAS LAS GRÁFICAS
+// ======================================================
 
 function crearGraficas(datos) {
 
@@ -16,34 +17,50 @@ function crearGraficas(datos) {
 
     crearGraficaModalidad(datos);
 
-    crearGraficaEstados(datos);
+    crearGraficaEdades(datos);
 
 }
 
-// ==========================================
-// PROFESIONES
-// ==========================================
+
+// ======================================================
+// PROFESIÓN
+// ======================================================
 
 function crearGraficaProfesion(datos) {
 
     if (graficaProfesion) {
-
         graficaProfesion.destroy();
-
     }
+
 
     const conteo = {};
 
+
     datos.forEach(p => {
 
-        conteo[p.profesion] =
-            (conteo[p.profesion] || 0) + 1;
+        const profesion =
+            String(
+                p.profesion || "No especificado"
+            ).trim();
+
+        conteo[profesion] =
+            (conteo[profesion] || 0) + 1;
 
     });
 
+
+    const ordenado =
+        Object.entries(conteo)
+            .sort(
+                (a, b) => b[1] - a[1]
+            );
+
+
     graficaProfesion = new Chart(
 
-        document.getElementById("chartProfesion"),
+        document.getElementById(
+            "chartProfesion"
+        ),
 
         {
 
@@ -51,17 +68,22 @@ function crearGraficaProfesion(datos) {
 
             data: {
 
-                labels: Object.keys(conteo),
+                labels:
+                    ordenado.map(
+                        item => item[0]
+                    ),
 
                 datasets: [{
 
-                    label: "Participantes",
+                    label:
+                        "Participantes",
 
-                    data: Object.values(conteo),
+                    data:
+                        ordenado.map(
+                            item => item[1]
+                        ),
 
-                    borderWidth: 1,
-                    borderColor: '#13322e',
-                    backgroundColor: '#98989A'
+                    borderWidth: 1
 
                 }]
 
@@ -71,12 +93,12 @@ function crearGraficaProfesion(datos) {
 
                 responsive: true,
 
+                maintainAspectRatio: false,
+
                 plugins: {
 
                     legend: {
-
                         display: false
-
                     }
 
                 },
@@ -85,7 +107,11 @@ function crearGraficaProfesion(datos) {
 
                     y: {
 
-                        beginAtZero: true
+                        beginAtZero: true,
+
+                        ticks: {
+                            precision: 0
+                        }
 
                     }
 
@@ -99,122 +125,77 @@ function crearGraficaProfesion(datos) {
 
 }
 
-// ==========================================
+
+// ======================================================
 // MODALIDAD
-// ==========================================
+// ======================================================
 
 function crearGraficaModalidad(datos) {
 
     if (graficaModalidad) {
-
         graficaModalidad.destroy();
-
     }
 
-    const conteo = {};
+
+    const conteo = {
+
+        Presencial: 0,
+
+        Virtual: 0
+
+    };
+
 
     datos.forEach(p => {
 
-        conteo[p.modalidad] =
-            (conteo[p.modalidad] || 0) + 1;
+        const modalidad =
+            String(
+                p.modalidad || ""
+            )
+                .trim()
+                .toLowerCase();
+
+
+        if (modalidad === "presencial") {
+
+            conteo.Presencial++;
+
+        } else if (
+            modalidad === "virtual"
+        ) {
+
+            conteo.Virtual++;
+
+        }
 
     });
+
 
     graficaModalidad = new Chart(
 
-        document.getElementById("chartModalidad"),
+        document.getElementById(
+            "chartModalidad"
+        ),
 
         {
 
-            type: "pie",
+            type: "doughnut",
 
             data: {
 
-                labels: Object.keys(conteo),
+                labels: [
+                    "Presencial",
+                    "Virtual"
+                ],
 
                 datasets: [{
 
-                    data: Object.values(conteo)
+                    data: [
+                        conteo.Presencial,
+                        conteo.Virtual
+                    ],
 
-                }]
-
-            },
-
-            options: {
-
-                responsive: true
-
-            }
-
-        }
-
-    );
-
-}
-
-// ==========================================
-// EDADES
-// ==========================================
-
-function crearGraficaEstados(datos){
-
-    if(graficaEstados){
-        graficaEstados.destroy();
-    }
-
-    const rangos = {
-        "18 - 20": 0,
-        "21 - 30": 0,
-        "31 - 40": 0,
-        "41 - 50": 0,
-        "51 o más": 0
-    };
-
-    datos.forEach(p => {
-
-        const edad = parseInt(p.edad);
-
-        if (isNaN(edad)) return;
-
-        if (edad >= 18 && edad <= 20) {
-            rangos["18 - 20"]++;
-        }
-        else if (edad >= 21 && edad <= 30) {
-            rangos["21 - 30"]++;
-        }
-        else if (edad >= 31 && edad <= 40) {
-            rangos["31 - 40"]++;
-        }
-        else if (edad >= 41 && edad <= 50) {
-            rangos["41 - 50"]++;
-        }
-        else if (edad >= 51) {
-            rangos["51 o más"]++;
-        }
-
-    });
-
-    graficaEstados = new Chart(
-
-        document.getElementById("chartEdades"),
-
-        {
-
-            type: "bar",
-
-            data: {
-
-                labels: Object.keys(rangos),
-
-                datasets: [{
-
-                    label: "Participantes",
-
-                    data: Object.values(rangos),
-
-                    borderWidth: 1,
-                    borderColor: '#13322e',
-                    backgroundColor: '#98989A'
+                    borderWidth: 2
 
                 }]
 
@@ -224,87 +205,166 @@ function crearGraficaEstados(datos){
 
                 responsive: true,
 
+                maintainAspectRatio: false,
+
+                cutout: "60%",
+
                 plugins: {
+
+                    legend: {
+                        position: "bottom"
+                    }
+
+                }
+
+            }
+
+        }
+
+    );
+
+}
+
+
+// ======================================================
+// RANGOS DE EDAD
+// ======================================================
+
+function crearGraficaEdades(datos) {
+
+    if (graficaEdades) {
+        graficaEdades.destroy();
+    }
+
+
+    const rangos = {
+
+        "18 - 20": 0,
+
+        "21 - 30": 0,
+
+        "31 - 40": 0,
+
+        "41 - 50": 0,
+
+        "51 o más": 0
+
+    };
+
+
+    datos.forEach(p => {
+
+        const edad =
+            parseInt(
+                p.edad,
+                10
+            );
+
+
+        if (Number.isNaN(edad)) {
+            return;
+        }
+
+
+        if (
+            edad >= 18 &&
+            edad <= 20
+        ) {
+
+            rangos["18 - 20"]++;
+
+        }
+
+        else if (
+            edad >= 21 &&
+            edad <= 30
+        ) {
+
+            rangos["21 - 30"]++;
+
+        }
+
+        else if (
+            edad >= 31 &&
+            edad <= 40
+        ) {
+
+            rangos["31 - 40"]++;
+
+        }
+
+        else if (
+            edad >= 41 &&
+            edad <= 50
+        ) {
+
+            rangos["41 - 50"]++;
+
+        }
+
+        else if (
+            edad >= 51
+        ) {
+
+            rangos["51 o más"]++;
+
+        }
+
+    });
+
+
+    graficaEdades = new Chart(
+
+        document.getElementById(
+            "chartEdades"
+        ),
+
+        {
+
+            type: "bar",
+
+            data: {
+
+                labels:
+                    Object.keys(rangos),
+
+                datasets: [{
+
+                    label:
+                        "Participantes",
+
+                    data:
+                        Object.values(rangos),
+
+                    borderWidth: 1
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false,
+
+                plugins: {
+
                     legend: {
                         display: false
                     }
+
                 },
 
                 scales: {
+
                     y: {
+
                         beginAtZero: true,
+
                         ticks: {
                             precision: 0
                         }
-                    }
-                }
-
-            }
-
-        }
-
-    );
-
-}
-
-// ==========================================
-// ESTADOS
-// ==========================================
-
-/*
-function crearGraficaEstados(datos) {
-
-    if (graficaEstados) {
-
-        graficaEstados.destroy();
-
-    }
-
-    const conteo = {};
-
-    datos.forEach(p => {
-
-        conteo[p.estado] =
-            (conteo[p.estado] || 0) + 1;
-
-    });
-
-    graficaEstados = new Chart(
-
-        document.getElementById("chartEstados"),
-
-        {
-
-            type: "bar",
-
-            data: {
-
-                labels: Object.keys(conteo),
-
-                datasets: [{
-
-                    label: "Participantes",
-
-                    data: Object.values(conteo),
-
-                    borderWidth: 1,
-                    borderColor: '#13322e',
-                    backgroundColor: '#98989A'
-
-                }]
-
-            },
-
-            options: {
-                indexAxis: 'y',
-
-                responsive: true,
-
-                scales: {
-
-                    x: {
-
-                        beginAtZero: true
 
                     }
 
@@ -317,4 +377,3 @@ function crearGraficaEstados(datos) {
     );
 
 }
-*/

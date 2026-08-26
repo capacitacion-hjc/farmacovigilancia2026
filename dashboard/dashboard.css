@@ -1,239 +1,454 @@
-/* ==========================================================
-   DASHBOARD ESTADÍSTICO
-   Hospital - Capacitación
-   Autor: Eduardo Javier Pérez Galván
-========================================================== */
+/* ======================================================
+   DASHBOARD
+   Primer Congreso de Farmacovigilancia y
+   Tecnovigilancia Hospitalaria
+====================================================== */
 
-body{
-    background:#f5f7fa;
-    font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
-}
+:root {
 
-/* ================= NAVBAR ================= */
+    --primary: #0d6efd;
 
-.navbar{
-    box-shadow:0 3px 10px rgba(0,0,0,.15);
-}
+    --background: #f4f7fb;
 
-.navbar-brand{
-    font-weight:600;
-    letter-spacing:.5px;
-}
-
-.bg-primary {
-    --bs-bg-opacity: 1;
-    background-color: #611232 !important;
-}
-
-/* ================= TARJETAS KPI ================= */
-
-.card{
-    border:none;
-    border-radius:15px;
-    transition:.25s;
-}
-
-.card:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 10px 20px rgba(0,0,0,.12);
+    --card-radius: 15px;
 
 }
 
-.card-header{
 
-    background:#611232;
+body {
 
-    color:#fff;
+    background:
+        var(--background);
 
-    font-weight:600;
+    color: #212529;
 
-}
-
-.card-body h2{
-
-    font-size:2.3rem;
-
-    font-weight:bold;
-
-    color:#611232;
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
 
 }
 
-/* ================= KPI ================= */
 
-.kpi-card{
+/* ======================================================
+   NAVBAR
+====================================================== */
 
-    border-left:5px solid #611232;
+.navbar {
 
-}
-
-.kpi-title{
-
-    color:#6c757d;
-
-    font-size:.9rem;
-
-    text-transform:uppercase;
+    min-height: 64px;
 
 }
 
-.kpi-number{
 
-    font-size:2.2rem;
+/* ======================================================
+   HEADER
+====================================================== */
 
-    font-weight:bold;
+.dashboard-header h1 {
 
-}
+    font-size: 1.8rem;
 
-/* ================= BOTONES ================= */
+    font-weight: 700;
 
-.btn{
-
-    border-radius:10px;
-
-    font-weight:600;
+    margin-bottom: 5px;
 
 }
 
-.btn-primary,
-.btn-success{
 
-    padding:10px 20px;
-    background-color: #a57f2c;
-    border-color: #a57f2c;
+/* ======================================================
+   KPI
+====================================================== */
 
-}
+.kpi-card {
 
-/* ================= TABLA ================= */
+    border: none;
 
-table{
+    border-radius:
+        var(--card-radius);
 
-    font-size:.90rem;
+    box-shadow:
+        0 5px 18px
+        rgba(0, 0, 0, .07);
 
-}
-
-thead{
-
-    background:#611232;
-
-    color:white;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 
 }
 
-table tbody tr:hover{
 
-    background:#eef5ff;
+.kpi-card:hover {
 
-}
+    transform:
+        translateY(-3px);
 
-.pagination{
-    --bs-pagination-active-bg: #a57f2c;
-    --bs-pagination-active-border-color: #a57f2c;
-
-}
-
-/* ================= CHART ================= */
-
-canvas{
-
-    max-height:420px;
+    box-shadow:
+        0 9px 24px
+        rgba(0, 0, 0, .11);
 
 }
 
-/* ================= FOOTER ================= */
 
-footer{
+.kpi-icon {
 
-    margin-top:60px;
+    display: block;
 
-    color:#6c757d;
+    font-size: 1.8rem;
 
-}
+    color:
+        var(--primary);
 
-/* ================= LOADER ================= */
-
-.loader{
-
-    display:none;
-
-    position:fixed;
-
-    left:0;
-
-    top:0;
-
-    width:100%;
-
-    height:100%;
-
-    background:rgba(255,255,255,.8);
-
-    z-index:9999;
+    margin-bottom: 6px;
 
 }
 
-.loader .spinner-border{
 
-    position:absolute;
+.kpi-label {
 
-    left:50%;
+    color:
+        #6c757d;
 
-    top:50%;
+    font-size: .78rem;
 
-    transform:translate(-50%,-50%);
+    font-weight: 600;
 
-}
-
-/* ================= ANIMACIONES ================= */
-
-.card{
-
-    animation:fadeIn .5s;
+    text-transform:
+        uppercase;
 
 }
 
-@keyframes fadeIn{
 
-    from{
+.kpi-value {
 
-        opacity:0;
+    color:
+        var(--primary);
 
-        transform:translateY(15px);
+    font-size: 2rem;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+}
+
+
+/* ======================================================
+   CARDS
+====================================================== */
+
+.dashboard-card {
+
+    border: none;
+
+    border-radius:
+        var(--card-radius);
+
+    box-shadow:
+        0 5px 18px
+        rgba(0, 0, 0, .07);
+
+    overflow: hidden;
+
+}
+
+
+.dashboard-card .card-header {
+
+    background:
+        #ffffff;
+
+    color:
+        #212529;
+
+    border-bottom:
+        1px solid #e9ecef;
+
+    padding:
+        15px 18px;
+
+    font-weight: 700;
+
+}
+
+
+.dashboard-card .card-header i {
+
+    color:
+        var(--primary);
+
+    margin-right: 5px;
+
+}
+
+
+/* ======================================================
+   CHARTS
+====================================================== */
+
+.chart-container {
+
+    min-height: 350px;
+
+    position: relative;
+
+}
+
+
+.chart-age {
+
+    min-height: 320px;
+
+}
+
+
+/* ======================================================
+   TABLA
+====================================================== */
+
+.table {
+
+    margin-bottom: 0;
+
+    font-size:
+        .88rem;
+
+}
+
+
+.table thead th {
+
+    background:
+        #f0f4f8;
+
+    color:
+        #343a40;
+
+    white-space:
+        nowrap;
+
+    font-weight:
+        700;
+
+    border-bottom:
+        2px solid #dee2e6;
+
+}
+
+
+.table tbody tr {
+
+    transition:
+        background-color .15s ease;
+
+}
+
+
+.table tbody tr:hover {
+
+    background:
+        #eef5ff;
+
+}
+
+
+.table td {
+
+    vertical-align:
+        middle;
+
+}
+
+
+/* ======================================================
+   BOTONES
+====================================================== */
+
+.btn {
+
+    border-radius:
+        9px;
+
+    font-weight:
+        600;
+
+}
+
+
+/* ======================================================
+   BUSCADOR
+====================================================== */
+
+#buscarParticipante {
+
+    min-height:
+        42px;
+
+}
+
+
+/* ======================================================
+   PAGINACIÓN
+====================================================== */
+
+.pagination-container {
+
+    min-height:
+        31px;
+
+}
+
+
+.pagination .page-link {
+
+    color:
+        var(--primary);
+
+}
+
+
+.pagination .active .page-link {
+
+    background:
+        var(--primary);
+
+    border-color:
+        var(--primary);
+
+    color:
+        #fff;
+
+}
+
+
+/* ======================================================
+   LOADER
+====================================================== */
+
+.loader-overlay {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        rgba(255, 255, 255, .82);
+
+    z-index:
+        9999;
+
+}
+
+
+.loader-overlay.show {
+
+    display:
+        flex;
+
+}
+
+
+.loader-box {
+
+    background:
+        #ffffff;
+
+    border-radius:
+        15px;
+
+    padding:
+        30px 45px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, .15);
+
+}
+
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+footer {
+
+    color:
+        #6c757d;
+
+}
+
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+
+    .dashboard-header h1 {
+
+        font-size:
+            1.4rem;
 
     }
 
-    to{
 
-        opacity:1;
+    .kpi-value {
 
-        transform:translateY(0);
+        font-size:
+            1.6rem;
+
+    }
+
+
+    .chart-container {
+
+        min-height:
+            280px;
 
     }
 
 }
 
-/* ================= RESPONSIVE ================= */
 
-@media(max-width:768px){
+@media (max-width: 576px) {
 
-.card-body h2{
+    .container-fluid {
 
-    font-size:1.8rem;
+        padding-left:
+            12px !important;
 
-}
+        padding-right:
+            12px !important;
 
-.card-header{
+    }
 
-    text-align:center;
 
-}
+    .dashboard-card .card-header {
 
-.navbar-brand{
+        padding:
+            12px;
 
-    font-size:1rem;
+    }
 
-}
+
+    .dashboard-header {
+
+        margin-bottom:
+            20px;
+
+    }
 
 }
