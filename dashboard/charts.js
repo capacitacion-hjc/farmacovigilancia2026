@@ -199,6 +199,11 @@ function crearGraficaModalidad(datos) {
                         conteo.Virtual
                     ],
 
+                    backgroundColor: [
+                        '#046398',
+                        '#1EAF93'
+                    ],
+
                     borderWidth: 2
 
                 }]
