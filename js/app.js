@@ -14,7 +14,7 @@ document
     try {
 
       const datos = {
-        nombre: document.getElementById("nombre").value,
+        nombre: document.getElementById("nombre").value.toUpperCase(),
         sexo: document.getElementById("sexo").value,
         edad: document.getElementById("edad").value,
         estado: document.getElementById("estado").value,
