@@ -224,10 +224,6 @@ function renderizarTabla() {
             </td>
 
             <td>
-                ${escapeHTML(p.edad)}
-            </td>
-
-            <td>
                 ${escapeHTML(p.estado)}
             </td>
 
@@ -462,7 +458,7 @@ function filtrarTabla(event) {
                     p.folio,
                     p.nombre,
                     p.sexo,
-                    p.edad,
+                    //p.edad,
                     p.estado,
                     p.institucion,
                     p.profesion,
@@ -509,7 +505,7 @@ function descargarCSV() {
         "Folio",
         "Nombre",
         "Sexo",
-        "Edad",
+        //"Edad",
         "Estado",
         "Institucion",
         "Profesion",
@@ -533,7 +529,7 @@ function descargarCSV() {
             p.folio,
             p.nombre,
             p.sexo,
-            p.edad,
+           // p.edad,
             p.estado,
             p.institucion,
             p.profesion,
