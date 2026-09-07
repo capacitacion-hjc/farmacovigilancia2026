@@ -249,26 +249,47 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">
-                                Profesión
-                            </label>
 
-                            <select id="profesion" class="form-select" required>
+							<label class="form-label">
+								Profesión
+							</label>
 
-                                <option value="">
-                                    Seleccione
-                                </option>
+							<select id="profesion" class="form-select" required>
 
-                                <option>Médico</option>
-                                <option>Enfermería</option>
-                                <option>Ingeniería</option>
-                                <option>Químico</option>
-                                <option>Estudiante</option>
-                                <option>Pasante</option>
-                                <option>Otro</option>
+								<option value="">
+									Seleccione
+								</option>
 
-                            </select>
-                        </div>
+								<option>Médico</option>
+								<option>Enfermería</option>
+								<option>Ingeniería</option>
+								<option>Químico</option>
+								<option>Estudiante</option>
+								<option>Pasante</option>
+								<option>Otro</option>
+
+							</select>
+
+							<div
+								id="profesionOtroContainer"
+								class="mt-3"
+								style="display:none;">
+
+								<label for="profesionOtro" class="form-label">
+									Especifique su profesión
+									<span class="text-danger">*</span>
+								</label>
+
+								<input
+									type="text"
+									id="profesionOtro"
+									class="form-control"
+									maxlength="100"
+									placeholder="Escriba su profesión">
+
+							</div>
+
+						</div>
 
                         <div class="mb-3">
                             <label class="form-label">
@@ -372,7 +393,7 @@
 
     </div>
 
-    <script src="js/app.js"></script>
+
 
     <div id="loader" class="loader-overlay d-none">
 
@@ -416,7 +437,7 @@
             alt="visitor badge" />
 
     </footer>
-
+    <script src="js/app.js"></script>
 </body>
 
 </html>

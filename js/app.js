@@ -11,7 +11,7 @@ document
       .getElementById("loader")
       .classList.remove("d-none");
 
-    try {
+    try {			
 
       const datos = {
         nombre: document.getElementById("nombre").value.toUpperCase(),
@@ -21,10 +21,12 @@ document
         institucion: document.getElementById("institucion").value,
         correo: document.getElementById("correo").value,
         telefono: document.getElementById("telefono").value,
-        profesion: document.getElementById("profesion").value,
+        profesion: profesion.value === "Otro" ? profesionOtro.value.trim() : profesion.value,
         gradoAcademico: document.getElementById("gradoAcademico").value,
         modalidad: document.querySelector('input[name="modalidad"]:checked').value
       };
+	  
+	  
 
       document
         .getElementById("btnRegistrar")
@@ -110,3 +112,29 @@ document
     }
 
   });
+  
+  
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const profesion = document.getElementById("profesion");
+    const profesionOtroContainer = document.getElementById("profesionOtroContainer");
+    const profesionOtro = document.getElementById("profesionOtro");
+
+    profesion.addEventListener("change", function () {
+
+        if (this.value === "Otro") {
+
+            profesionOtroContainer.style.display = "block";
+            profesionOtro.required = true;
+
+        } else {
+
+            profesionOtroContainer.style.display = "none";
+            profesionOtro.required = false;
+            profesionOtro.value = "";
+
+        }
+
+    });
+
+});
