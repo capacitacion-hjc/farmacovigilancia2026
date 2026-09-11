@@ -434,6 +434,9 @@ function crearGraficaEstados(datos) {
                 datasets: [{
                     label: "Participantes",
                     data: ordenado.map(item => item[1]),
+                    backgroundColor: [
+                        '#046398'
+                    ],
                     borderWidth: 1
                 }]
             },
