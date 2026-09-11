@@ -19,6 +19,9 @@ function crearGraficas(datos) {
 
     crearGraficaEdades(datos);
 
+    crearGraficaEstados(datos);
+
+
 }
 
 
@@ -388,4 +391,73 @@ function crearGraficaEdades(datos) {
 
     );
 
+}
+
+// ======================================================
+// RANGOS DE Estado EJPG 
+// ======================================================
+
+
+
+let graficaEstados = null;
+
+function crearGraficaEstados(datos) {
+
+    if (graficaEstados) {
+        graficaEstados.destroy();
+    }
+
+    const conteo = {};
+
+    datos.forEach(p => {
+
+        const estado = String(
+            p.estado || "No especificado"
+        ).trim();
+
+        conteo[estado] =
+            (conteo[estado] || 0) + 1;
+
+    });
+
+    const ordenado = Object.entries(conteo)
+        .sort((a, b) => b[1] - a[1]);
+
+    graficaEstados = new Chart(
+        document.getElementById("chartEstados"),
+        {
+            type: "bar",
+
+            data: {
+                labels: ordenado.map(item => item[0]),
+
+                datasets: [{
+                    label: "Participantes",
+                    data: ordenado.map(item => item[1]),
+                    borderWidth: 1
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+
+                scales: {
+                    y: {
+                        beginAtZero: true,
+
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                }
+            }
+        }
+    );
 }
