@@ -5,7 +5,7 @@
 const API_URL =
     "https://script.google.com/macros/s/AKfycbx2DulpzmZui_aRU3dms6l8me-WHK33vO5b13WsKShmsAvNfrqjUaTU_AH53p1LVVnk/exec?action=dashboard";
 
-const REGISTROS_POR_PAGINA = 10;
+const REGISTROS_POR_PAGINA = 25;
 
 
 // ======================================================
