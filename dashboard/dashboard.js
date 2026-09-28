@@ -518,7 +518,7 @@ function descargarCSV() {
     let csv =
         encabezados
             .map(csvEscapar)
-            .join(";")
+            .join(",")
         + "\r\n";
 
 
@@ -541,7 +541,7 @@ function descargarCSV() {
         csv +=
             fila
                 .map(csvEscapar)
-                .join(";")
+                .join(",")
             + "\r\n";
 
     });
