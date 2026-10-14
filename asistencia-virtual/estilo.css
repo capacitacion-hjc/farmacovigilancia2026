@@ -1,0 +1,182 @@
+
+:root {
+    --vino: #611232;
+    --vino-oscuro: #471025;
+    --gris-fondo: #f4f6f9;
+    --gris-texto: #555;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--gris-fondo);
+    color: #292929;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.encabezado {
+    background: var(--vino);
+    color: #fff;
+    padding: 35px 0;
+    text-align: center;
+    border-bottom: 5px solid #bc955c;
+}
+
+.institucion {
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.encabezado h1 {
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.evento {
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.contenedor-principal {
+    max-width: 720px;
+    padding-top: 35px;
+    padding-bottom: 25px;
+}
+
+.tarjeta-asistencia {
+    background: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.icono-evento {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3e8ed;
+    color: var(--vino);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.tarjeta-asistencia h2 {
+    text-align: center;
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.descripcion {
+    color: var(--gris-texto);
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.aviso {
+    padding: 14px 16px;
+    background: #fff8e8;
+    border-left: 4px solid #bc955c;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-size: 0.94rem;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.form-control {
+    min-height: 46px;
+}
+
+.form-control:focus {
+    border-color: var(--vino);
+    box-shadow: 0 0 0 0.2rem rgba(97, 18, 50, 0.15);
+}
+
+.btn-asistencia {
+    background: var(--vino);
+    border-color: var(--vino);
+    color: #fff;
+    min-height: 48px;
+    font-weight: 700;
+}
+
+.btn-asistencia:hover {
+    background: var(--vino-oscuro);
+    border-color: var(--vino-oscuro);
+    color: #fff;
+}
+
+.btn-asistencia:disabled {
+    opacity: 0.7;
+}
+
+.cargando {
+    text-align: center;
+    color: var(--gris-texto);
+}
+
+.mensaje {
+    padding: 15px;
+    border-radius: 6px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.mensaje.exito {
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    color: #1b5e20;
+}
+
+.mensaje.error {
+    background: #fdecea;
+    border: 1px solid #ef9a9a;
+    color: #8e2020;
+}
+
+.mensaje.info {
+    background: #eaf2f8;
+    border: 1px solid #b3d0e5;
+    color: #174b70;
+}
+
+.nota-pie {
+    margin-top: 24px;
+    text-align: center;
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 576px) {
+    .encabezado {
+        padding: 28px 12px;
+    }
+
+    .tarjeta-asistencia {
+        padding: 22px 18px;
+    }
+
+    .contenedor-principal {
+        padding-top: 20px;
+    }
+}
