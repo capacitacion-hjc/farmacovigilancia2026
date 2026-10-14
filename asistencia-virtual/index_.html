@@ -16,15 +16,15 @@
 </head>
 <body>
 
-    <header class="encabezado">
+    <header class="encabezado" style="padding-top: 15px;padding-bottom: 15px;">
         <div class="container">
             <div class="text-center mb-4" style="margin-top: 24px;">
 
                 <img src="..//img/logo_hospital.png" alt="Logo Institucional" class="img-fluid" style="max-height:120px;">
 
             </div>
-            <p class="institucion">Hospital Juárez del Centro</p>
-            <h1>Registro de asistencia virtual</h1>
+            <p><h2>Hospital Juárez del Centro</h2></p>
+            <h3>Registro de asistencia virtual</h3>
             <p class="evento">
                 Primer Congreso de Farmacovigilancia
                 y Tecnovigilancia Hospitalaria 2026
@@ -47,7 +47,15 @@
             <div class="aviso">
                 <strong>Importante:</strong>
                 puedes registrar tu asistencia una vez por día.
-                Verifica que tu correo y folio sean correctos.
+                <br><br>Verifica que tu correo y folio sean correctos.
+            </div>
+
+            <div
+                id="mensaje"
+                class="mensaje mt-4"
+                role="status"
+                aria-live="polite"
+                hidden>
             </div>
 
             <form id="formAsistencia">
@@ -104,13 +112,7 @@
                 </div>
             </form>
 
-            <div
-                id="mensaje"
-                class="mensaje mt-4"
-                role="status"
-                aria-live="polite"
-                hidden>
-            </div>
+            
 
         </section>
 
