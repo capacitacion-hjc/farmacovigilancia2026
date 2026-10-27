@@ -1,5 +1,5 @@
 
-const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbzX0E1ju1lLI4h7qlHnMeuNz30nuDKO-Qu2JFwXTXEe8ahhvhlvFjFSVGg9p7lKNEHS/exec";
+const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbx2DulpzmZui_aRU3dms6l8me-WHK33vO5b13WsKShmsAvNfrqjUaTU_AH53p1LVVnk/exec";
 
 const formulario = document.getElementById("formAsistencia");
 const boton = document.getElementById("btnRegistrar");
